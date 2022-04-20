@@ -1,0 +1,19 @@
+---
+# tasks file for db
+- name: postgresql client installation
+  yum:
+    name:
+      - postgresql
+
+- name: steps for redis installation
+  get_url:
+    url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    dest: /tmp/epel.rpm
+
+  #shell: uri -O /tmp/epel.rpm –nv https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum install -y /tmp/epel.rpm && sudo yum update -y
+
+- name: redis installation
+  shell: sudo yum install -y /tmp/epel.rpm
+         sudo yum update -y
+         sudo yum install redis -y
+

@@ -1,0 +1,30 @@
+---
+# tasks file for hydrostats
+- name: includingvars file
+  include_vars: main.yml
+- name: Add the hydrostats user
+  user:
+    name: hydrostats
+    shell: /bin/bash
+    groups: root
+    append: yes
+- name: shell commands
+  become: yes
+  shell: mkdir -p /opt/app && mkdir -p /requirements && touch /requirements/production.txt
+
+- name: "Create virtualenv"
+  shell: sudo python3 -m venv "{{ PROJECT_HOME }}/env"
+         source ~"{{ PROJECT_HOME }}/env"/bin/activate
+
+- name: Activate the VEnv and install requirements
+  shell: /opt/app/env/bin/./pip install -r /requirements/production.txt
+
+- name: copying files to /opt/app
+  template:
+    src: file.txt
+    dest: /opt/app
+      
+- name: shell commands
+  shell: sudo mkdir -p /opt/app/logs && sudo chmod 777 /opt/app/logs
+
+

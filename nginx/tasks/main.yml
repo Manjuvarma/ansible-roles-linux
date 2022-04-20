@@ -1,0 +1,5 @@
+---
+# tasks file for nginx
+- name: nginx package installation
+  shell: sudo amazon-linux-extras install nginx1 -y
+  

@@ -1,0 +1,5 @@
+---
+# vars file for hydrostats
+PYCURL_SSL_LIBRARY: nss
+DJANGO_SETTINGS_MODULE: hydrostats_api.settings
+PROJECT_HOME: "/opt/app"

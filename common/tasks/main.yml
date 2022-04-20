@@ -1,0 +1,34 @@
+---
+# tasks file for common
+- name: latest version of all required packages installed
+  yum:
+    name:
+      - ca-certificates
+      - curl
+      - gettext
+      - git
+      - bzip2-devel
+      - cairo
+      - cairo-devel
+      - cairomm-devel
+      - pango
+      - pango-devel
+      - pangomm
+      - pangomm-devel
+      - libcurl-devel
+      - libffi-devel
+      - xz-devel
+      - llvm
+      - make
+      - net-tools
+      - openssl
+      - python3-devel
+      - wget
+      - shared-mime-info
+      - libcurl-devel
+      - "@Development tools"
+    state: latest
+
+- name: install gunicorn
+  shell: sudo pip3 install gunicorn
+
